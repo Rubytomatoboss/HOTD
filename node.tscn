@@ -8,3 +8,4 @@ script = ExtResource("1_rdqm3")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Анимация голенькой Фурины" type="AnimationPlayer" parent="."]
