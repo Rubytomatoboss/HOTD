@@ -1,11 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://bilqfqw37ypdl"]
-
-[ext_resource type="Script" path="res://node.gd" id="1_rdqm3"]
+[gd_scene format=3 uid="uid://bilqfqw37ypdl"]
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_rdqm3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-[node name="Анимация голенькой Фурины" type="AnimationPlayer" parent="."]
