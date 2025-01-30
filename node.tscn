@@ -5,5 +5,6 @@
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6qkpd")]
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
