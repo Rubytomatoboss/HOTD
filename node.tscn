@@ -1,5 +1,3 @@
 [gd_scene format=3 uid="uid://bilqfqw37ypdl"]
 
 [node name="World" type="Node2D"]
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
