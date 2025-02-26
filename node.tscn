@@ -3,3 +3,4 @@
 [node name="World" type="Node2D"]
 
 [node name="BigBlackCog" type="Node2D" parent="."]
+[node name="SmallWhiteNode" type="Node2D" parent="."]
