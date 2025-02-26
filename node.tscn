@@ -7,3 +7,5 @@
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BigBlackCog"]
 
 [node name="SmallWhiteNode" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SmallWhiteNode"]
