@@ -2,6 +2,6 @@
 
 [node name="World" type="Node2D"]
 
-[node name="SmallWhiteNode" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SmallWhiteNode"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
