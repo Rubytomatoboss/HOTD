@@ -13,3 +13,5 @@ offset_bottom = 40.0
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="Node3D" type="Node3D" parent="."]
