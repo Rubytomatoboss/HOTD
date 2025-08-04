@@ -9,3 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
