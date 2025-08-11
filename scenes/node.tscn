@@ -1,16 +1,18 @@
-[gd_scene load_steps=9 format=4 uid="uid://ctpjoaws40sin"]
+[gd_scene load_steps=12 format=4 uid="uid://ctpjoaws40sin"]
 
-[ext_resource type="TileSet" uid="uid://lgikbmvv2yjp" path="res://tilesets/test_tile_set.tres" id="1_112p8"]
-[ext_resource type="Script" uid="uid://bvwu1hfbw6nru" path="res://scripts/player.gd" id="2_bss38"]
-[ext_resource type="Texture2D" uid="uid://cm7ntuhsuxf25" path="res://sprites/player.png" id="2_e2u21"]
-[ext_resource type="Script" uid="uid://b4l080h0oc31a" path="res://scripts/object.gd" id="4_e2u21"]
-[ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="5_bss38"]
+[ext_resource type="TileSet" uid="uid://lgikbmvv2yjp" path="res://tilesets/test_tile_set.tres" id="1_6qyud"]
+[ext_resource type="Script" uid="uid://bvwu1hfbw6nru" path="res://scripts/player.gd" id="2_2ysve"]
+[ext_resource type="Texture2D" uid="uid://cm7ntuhsuxf25" path="res://sprites/player.png" id="3_5x2ja"]
+[ext_resource type="PackedScene" uid="uid://b0r3514ub7c8k" path="res://scenes/interacting_component.tscn" id="4_4ygak"]
+[ext_resource type="Script" uid="uid://b4l080h0oc31a" path="res://scripts/object.gd" id="5_p1wol"]
+[ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="6_6s6hf"]
+[ext_resource type="PackedScene" uid="uid://bgklx3xoev5e5" path="res://scenes/interactable.tscn" id="7_htg2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tda05"]
 radius = 8.0
 
 [sub_resource type="Resource" id="Resource_tda05"]
-script = ExtResource("5_bss38")
+script = ExtResource("6_6s6hf")
 name = "Вход в подземелье"
 description = "Вход"
 metadata/_custom_type_script = "uid://cuefcb0neh4ua"
@@ -18,44 +20,47 @@ metadata/_custom_type_script = "uid://cuefcb0neh4ua"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn3nj"]
 size = Vector2(32, 32)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r657h"]
+radius = 32.0
+
 [node name="World" type="Node2D"]
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD9//3/AAAOAAkAAAD9//7/AAAOAAkAAAD9////AAAOAAkAAAD9/wAAAAAOAAkAAAD9/wEAAAAOAAkAAAD9/wIAAAAOAAkAAAD+//3/AAAOAAkAAAD+//7/AAAOAAkAAAD+////AAAOAAkAAAD+/wAAAAAOAAkAAAD+/wEAAAAOAAkAAAD+/wIAAAAOAAkAAAD///3/AAAOAAkAAAD///7/AAAOAAkAAAD/////AAAOAAkAAAD//wAAAAAOAAkAAAD//wEAAAAOAAkAAAD//wIAAAAOAAkAAAAAAP3/AAAOAAkAAAAAAP7/AAAOAAkAAAAAAP//AAAOAAkAAAAAAAAAAAAOAAkAAAAAAAEAAAAOAAkAAAAAAAIAAAAOAAkAAAABAP3/AAAOAAkAAAABAP7/AAAOAAkAAAABAP//AAAOAAkAAAABAAAAAAAOAAkAAAABAAEAAAAOAAkAAAABAAIAAAAOAAkAAAACAP3/AAAOAAkAAAACAP7/AAAOAAkAAAACAP//AAAOAAkAAAACAAAAAAAOAAkAAAACAAEAAAAOAAkAAAACAAIAAAAOAAkAAAADAP3/AAAOAAkAAAADAP7/AAAOAAkAAAADAP//AAAkAAoAAAADAAAAAAAOAAkAAAADAAEAAAAOAAkAAAADAAIAAAAOAAkAAAAEAP3/AAAOAAkAAAAEAP7/AAAOAAkAAAAEAP//AAAOAAkAAAAEAAAAAAAOAAkAAAAEAAEAAAAOAAkAAAAEAAIAAAAOAAkAAAAFAP3/AAAOAAkAAAAFAP7/AAAOAAkAAAAFAP//AAAOAAkAAAAFAAAAAAAOAAkAAAAFAAEAAAAOAAkAAAAFAAIAAAAOAAkAAAA=")
-tile_set = ExtResource("1_112p8")
+tile_set = ExtResource("1_6qyud")
 
 [node name="ObjectLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/wMAAAABABMAAAD9/wMAAAAEABMAAAD+/wMAAAAEABMAAAD//wMAAAAEABMAAAAAAAMAAAAAABMAAAABAAMAAAAGABMAAAACAAMAAAACABMAAAADAAMAAAACABMAAAAEAAMAAAAEABMAAAAFAAMAAAADABMAAAAGAAMAAAACABMAAAAGAAIAAAAFABMAAAAGAAEAAAAGABMAAAAGAAAAAAAEABMAAAAGAP//AAAAABMAAAAGAP7/AAACABMAAAAGAP3/AAAEABMAAAAGAPz/AAADABMAAAAFAPz/AAABABMAAAAEAPz/AAADABMAAAADAPz/AAABABMAAAACAPz/AAAFABMAAAABAPz/AAABABMAAAAAAPz/AAADABMAAAD///z/AAAEABMAAAD+//z/AAAEABMAAAD9//z/AAACABMAAAD8//z/AAAEABMAAAD8//3/AAAEABMAAAD8//7/AAACABMAAAD8////AAAEABMAAAD8/wAAAAABABMAAAD8/wEAAAAEABMAAAD8/wIAAAACABMAAAA=")
-tile_set = ExtResource("1_112p8")
+tile_set = ExtResource("1_6qyud")
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("hit_box")]
+[node name="Player" type="CharacterBody2D" parent="."]
 scale = Vector2(2, 2)
 motion_mode = 1
-script = ExtResource("2_bss38")
+script = ExtResource("2_2ysve")
 speed = 200
-hit_box = NodePath("HitBox")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_e2u21")
+texture = ExtResource("3_5x2ja")
 
 [node name="Collision" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_tda05")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="HitBox" type="Area2D" parent="Player"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Collision" type="CollisionShape2D" parent="Player/HitBox"]
-shape = SubResource("CircleShape2D_tda05")
+[node name="InteractingComponent" parent="Player" instance=ExtResource("4_4ygak")]
 
 [node name="Object" type="StaticBody2D" parent="."]
 position = Vector2(112, -16)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_e2u21")
+script = ExtResource("5_p1wol")
 object_stats = SubResource("Resource_tda05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
 shape = SubResource("RectangleShape2D_qn3nj")
+
+[node name="interactable" parent="Object" instance=ExtResource("7_htg2y")]
+interact_name = "Enter the dungeon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/interactable"]
+shape = SubResource("CircleShape2D_r657h")

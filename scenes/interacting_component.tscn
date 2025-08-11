@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0r3514ub7c8k"]
+
+[ext_resource type="FontFile" uid="uid://duifasix0yuhj" path="res://fonts/Piksel-JAGa.ttf" id="1_ofc3v"]
+[ext_resource type="Script" uid="uid://binm2rj21rl2k" path="res://scripts/interacting_component.gd" id="1_syslh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syslh"]
+radius = 25.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2dsw"]
+font = ExtResource("1_ofc3v")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractingComponent" type="Node2D"]
+script = ExtResource("1_syslh")
+
+[node name="InteractionRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_syslh")
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -64.0
+offset_right = 57.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E to do something"
+label_settings = SubResource("LabelSettings_k2dsw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
