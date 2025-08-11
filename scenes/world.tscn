@@ -1,27 +1,17 @@
-[gd_scene load_steps=12 format=4 uid="uid://ctpjoaws40sin"]
+[gd_scene load_steps=7 format=4 uid="uid://ctpjoaws40sin"]
 
 [ext_resource type="TileSet" uid="uid://lgikbmvv2yjp" path="res://tilesets/test_tile_set.tres" id="1_i7141"]
-[ext_resource type="Script" uid="uid://bvwu1hfbw6nru" path="res://scripts/player.gd" id="2_4mrxx"]
-[ext_resource type="Texture2D" uid="uid://cm7ntuhsuxf25" path="res://sprites/player.png" id="3_7r4gi"]
-[ext_resource type="PackedScene" uid="uid://b0r3514ub7c8k" path="res://scenes/interacting_component.tscn" id="4_w7kh3"]
-[ext_resource type="Script" uid="uid://b4l080h0oc31a" path="res://scripts/object.gd" id="5_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://dvvg50n3gx6qi" path="res://scenes/player.tscn" id="2_71j4m"]
+[ext_resource type="PackedScene" uid="uid://dd57xou3vgb58" path="res://scenes/test_object.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://c3iume7ejc5jr" path="res://scenes/black_frame.tscn" id="4_k0juu"]
 [ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="6_q5onr"]
-[ext_resource type="PackedScene" uid="uid://bgklx3xoev5e5" path="res://scenes/interactable.tscn" id="7_jhx03"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tda05"]
-radius = 8.0
-
-[sub_resource type="Resource" id="Resource_tda05"]
+[sub_resource type="Resource" id="Resource_71j4m"]
 script = ExtResource("6_q5onr")
-name = "Вход в подземелье"
-description = "Вход"
+interaction_name = "Войти в подземелье"
+name = "Подземелье"
+description = "Лестница, которая тянется далеко вглубь земли"
 metadata/_custom_type_script = "uid://cuefcb0neh4ua"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn3nj"]
-size = Vector2(32, 32)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_r657h"]
-radius = 32.0
 
 [node name="World" type="Node2D"]
 
@@ -33,34 +23,17 @@ tile_set = ExtResource("1_i7141")
 tile_map_data = PackedByteArray("AAD8/wMAAAABABMAAAD9/wMAAAAEABMAAAD+/wMAAAAEABMAAAD//wMAAAAEABMAAAAAAAMAAAAAABMAAAABAAMAAAAGABMAAAACAAMAAAACABMAAAADAAMAAAACABMAAAAEAAMAAAAEABMAAAAFAAMAAAADABMAAAAGAAMAAAACABMAAAAGAAIAAAAFABMAAAAGAAEAAAAGABMAAAAGAAAAAAAEABMAAAAGAP//AAAAABMAAAAGAP7/AAACABMAAAAGAP3/AAAEABMAAAAGAPz/AAADABMAAAAFAPz/AAABABMAAAAEAPz/AAADABMAAAADAPz/AAABABMAAAACAPz/AAAFABMAAAABAPz/AAABABMAAAAAAPz/AAADABMAAAD///z/AAAEABMAAAD+//z/AAAEABMAAAD9//z/AAACABMAAAD8//z/AAAEABMAAAD8//3/AAAEABMAAAD8//7/AAACABMAAAD8////AAAEABMAAAD8/wAAAAABABMAAAD8/wEAAAAEABMAAAD8/wIAAAACABMAAAA=")
 tile_set = ExtResource("1_i7141")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-scale = Vector2(2, 2)
-motion_mode = 1
-script = ExtResource("2_4mrxx")
-speed = 200
-
-[node name="Sprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_7r4gi")
-
-[node name="Collision" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_tda05")
+[node name="Player" parent="." instance=ExtResource("2_71j4m")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
 
-[node name="InteractingComponent" parent="Player" instance=ExtResource("4_w7kh3")]
-
-[node name="Object" type="StaticBody2D" parent="."]
+[node name="Object" parent="." node_paths=PackedStringArray("black_frame") instance=ExtResource("3_4wyf3")]
 position = Vector2(112, -16)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("5_e3hyu")
-object_stats = SubResource("Resource_tda05")
+object_stats = SubResource("Resource_71j4m")
+black_frame = NodePath("../CanvasLayer/BlackFrame")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
-shape = SubResource("RectangleShape2D_qn3nj")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="interactable" parent="Object" instance=ExtResource("7_jhx03")]
-interact_name = "Enter the dungeon"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/interactable"]
-shape = SubResource("CircleShape2D_r657h")
+[node name="BlackFrame" parent="CanvasLayer" instance=ExtResource("4_k0juu")]
+visible = false

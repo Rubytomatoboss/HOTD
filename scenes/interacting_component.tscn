@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0r3514ub7c8k"]
 
-[ext_resource type="FontFile" uid="uid://duifasix0yuhj" path="res://fonts/Piksel-JAGa.ttf" id="1_ofc3v"]
 [ext_resource type="Script" uid="uid://binm2rj21rl2k" path="res://scripts/interacting_component.gd" id="1_syslh"]
+[ext_resource type="FontFile" uid="uid://daetakcfbar0u" path="res://fonts/RussoOne-Regular.ttf" id="2_syslh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_syslh"]
 radius = 25.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_k2dsw"]
-font = ExtResource("1_ofc3v")
+font = ExtResource("2_syslh")
+font_size = 14
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -34,7 +35,7 @@ offset_right = 57.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "E to do something"
+text = "Нажми что-то, чтобы что-то"
 label_settings = SubResource("LabelSettings_k2dsw")
 horizontal_alignment = 1
 vertical_alignment = 1

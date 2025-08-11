@@ -5,3 +5,6 @@ extends Area2D
 
 var interact: Callable = func(): #пустая функция, в которую добавляются условия скриптом объекта
 	pass
+
+func _ready() -> void:
+	interact_name = get_parent().object_stats.interaction_name

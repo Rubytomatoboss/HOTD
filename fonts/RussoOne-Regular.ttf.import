@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://duifasix0yuhj"
-path="res://.godot/imported/Piksel-JAGa.ttf-75aa05d4ff2c24556edf26288959e827.fontdata"
+uid="uid://daetakcfbar0u"
+path="res://.godot/imported/RussoOne-Regular.ttf-a22c4422eb96ff6a5f52169ec4a5d890.fontdata"
 
 [deps]
 
-source_file="res://fonts/Piksel-JAGa.ttf"
-dest_files=["res://.godot/imported/Piksel-JAGa.ttf-75aa05d4ff2c24556edf26288959e827.fontdata"]
+source_file="res://fonts/RussoOne-Regular.ttf"
+dest_files=["res://.godot/imported/RussoOne-Regular.ttf-a22c4422eb96ff6a5f52169ec4a5d890.fontdata"]
 
 [params]
 

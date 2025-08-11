@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3iume7ejc5jr"]
+
+[ext_resource type="Script" uid="uid://bpr3dpvdix07v" path="res://scripts/black_frame.gd" id="1_h8au2"]
+[ext_resource type="FontFile" uid="uid://daetakcfbar0u" path="res://fonts/RussoOne-Regular.ttf" id="2_h8au2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8au2"]
+font = ExtResource("2_h8au2")
+font_size = 32
+
+[node name="BlackFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8au2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UpperLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Something"
+label_settings = SubResource("LabelSettings_h8au2")
+horizontal_alignment = 1
+
+[node name="CenterLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -69.0
+offset_right = 1280.0
+offset_bottom = 128.0
+grow_vertical = 2
+text = "Something"
+label_settings = SubResource("LabelSettings_h8au2")
+autowrap_mode = 2
