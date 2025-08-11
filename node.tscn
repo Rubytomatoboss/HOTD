@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://ctpjoaws40sin"]
+[gd_scene load_steps=9 format=4 uid="uid://ctpjoaws40sin"]
 
 [ext_resource type="TileSet" uid="uid://lgikbmvv2yjp" path="res://tilesets/test_tile_set.tres" id="1_112p8"]
 [ext_resource type="Script" uid="uid://bvwu1hfbw6nru" path="res://scripts/player.gd" id="2_bss38"]
 [ext_resource type="Texture2D" uid="uid://cm7ntuhsuxf25" path="res://sprites/player.png" id="2_e2u21"]
 [ext_resource type="Script" uid="uid://b4l080h0oc31a" path="res://scripts/object.gd" id="4_e2u21"]
 [ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="5_bss38"]
-[ext_resource type="Script" uid="uid://4xh56me15unc" path="res://scripts/popup_menu.gd" id="6_tda05"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tda05"]
 radius = 8.0
@@ -14,7 +13,6 @@ radius = 8.0
 script = ExtResource("5_bss38")
 name = "Вход в подземелье"
 description = "Вход"
-usage = Array[String]([])
 metadata/_custom_type_script = "uid://cuefcb0neh4ua"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn3nj"]
@@ -30,12 +28,11 @@ tile_set = ExtResource("1_112p8")
 tile_map_data = PackedByteArray("AAD8/wMAAAABABMAAAD9/wMAAAAEABMAAAD+/wMAAAAEABMAAAD//wMAAAAEABMAAAAAAAMAAAAAABMAAAABAAMAAAAGABMAAAACAAMAAAACABMAAAADAAMAAAACABMAAAAEAAMAAAAEABMAAAAFAAMAAAADABMAAAAGAAMAAAACABMAAAAGAAIAAAAFABMAAAAGAAEAAAAGABMAAAAGAAAAAAAEABMAAAAGAP//AAAAABMAAAAGAP7/AAACABMAAAAGAP3/AAAEABMAAAAGAPz/AAADABMAAAAFAPz/AAABABMAAAAEAPz/AAADABMAAAADAPz/AAABABMAAAACAPz/AAAFABMAAAABAPz/AAABABMAAAAAAPz/AAADABMAAAD///z/AAAEABMAAAD+//z/AAAEABMAAAD9//z/AAACABMAAAD8//z/AAAEABMAAAD8//3/AAAEABMAAAD8//7/AAACABMAAAD8////AAAEABMAAAD8/wAAAAABABMAAAD8/wEAAAAEABMAAAD8/wIAAAACABMAAAA=")
 tile_set = ExtResource("1_112p8")
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("popup", "hit_box")]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("hit_box")]
 scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("2_bss38")
 speed = 200
-popup = NodePath("../PopupMenu")
 hit_box = NodePath("HitBox")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
@@ -62,11 +59,3 @@ object_stats = SubResource("Resource_tda05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
 shape = SubResource("RectangleShape2D_qn3nj")
-
-[node name="PopupMenu" type="PopupMenu" parent="."]
-initial_position = 2
-allow_search = false
-script = ExtResource("6_tda05")
-
-[connection signal="id_pressed" from="PopupMenu" to="PopupMenu" method="_on_id_pressed"]
-[connection signal="popup_hide" from="PopupMenu" to="PopupMenu" method="_on_popup_hide"]
