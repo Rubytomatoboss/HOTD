@@ -1,4 +1,5 @@
 extends Control
+class_name BlackFrame
 
 var upper_text: String
 var center_text: String
