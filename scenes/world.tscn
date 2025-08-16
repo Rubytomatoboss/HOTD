@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_71j4m"]
 script = ExtResource("6_q5onr")
-interaction_name = "Войти в подземелье"
+interaction_name = "E - войти в подземелье, F - исследовать"
 name = "Подземелье"
 description = "Лестница, которая тянется далеко вглубь земли"
 metadata/_custom_type_script = "uid://cuefcb0neh4ua"

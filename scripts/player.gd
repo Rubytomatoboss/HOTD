@@ -7,3 +7,4 @@ class_name Player #сделаем игрока классом, чтобы в б�
 func _physics_process(delta: float) -> void: #встроенная функция, которая происходит 60 раз в в секунду
 	velocity = speed * Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	move_and_slide()
+	

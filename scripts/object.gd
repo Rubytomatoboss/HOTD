@@ -6,5 +6,9 @@ extends StaticBody2D
 func _ready() -> void:
 	interactable.interact = _on_interact
 	
-func _on_interact():
-	pass
+func _on_interact(interaction):
+	match interaction:
+		"use":
+			print("used")
+		"examine":
+			print("examined")

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var interact_label: Label = $InteractLabel
+@export var interact_label: Label
 var current_interactions := [] #список объектов для взаимодействия
 var can_interact := true
 
@@ -10,7 +10,15 @@ func _input(event: InputEvent) -> void:
 			can_interact = false
 			interact_label.hide()
 			
-			await current_interactions[0].interact.call() #подождать пока функция полностью выполниться и после этого закончить код
+			await current_interactions[0].interact.call("use") #подождать пока функция полностью выполниться и после этого закончить код
+			
+			can_interact = true
+	elif event.is_action_pressed("examine") and can_interact:
+		if current_interactions:
+			can_interact = false
+			interact_label.hide()
+			
+			await current_interactions[0].interact.call("examine") #подождать пока функция полностью выполниться и после этого закончить код
 			
 			can_interact = true
 
