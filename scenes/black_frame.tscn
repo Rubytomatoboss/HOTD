@@ -49,3 +49,16 @@ grow_vertical = 2
 text = "Something"
 label_settings = SubResource("LabelSettings_h8au2")
 autowrap_mode = 2
+
+[node name="CenterLabel2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Для продолжения нажмите Enter"
+label_settings = SubResource("LabelSettings_h8au2")
+autowrap_mode = 2
