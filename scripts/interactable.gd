@@ -1,3 +1,4 @@
+class_name interactable
 extends Area2D
 
 @export var interact_name: String #имя взаимодействия "войти в подземелье" или "открыть сундук" и т.д.

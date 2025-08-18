@@ -14,9 +14,11 @@ class_name BlackFrame
 	#center_label.text = center_text
 
 
-func _on_object_show_black_frame(upper_text, center_text) -> void:
-	show()
-	upper_label.text = upper_text
-	center_label.text = center_text
-	print("lol")
-	
+func _on_object_show_black_frame(upper_text, center_text, visibility) -> void:
+	if visibility == true:
+		show()
+		upper_label.text = upper_text
+		center_label.text = center_text
+	#print("lol")
+	elif visibility == false:
+		hide()
