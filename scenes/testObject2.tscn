@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://t5r0yhq6eojp"]
+
+[ext_resource type="Script" uid="uid://ch2ocncu81h1b" path="res://scripts/object_2.gd" id="1_gfd0b"]
+[ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="2_iu7ns"]
+[ext_resource type="PackedScene" uid="uid://bgklx3xoev5e5" path="res://scenes/interactable.tscn" id="3_e43ws"]
+
+[sub_resource type="Resource" id="Resource_i7141"]
+script = ExtResource("2_iu7ns")
+interaction_name = "E - войти в подземелье, F - исследовать"
+name = "Лестница наверх"
+description = "Врот"
+metadata/_custom_type_script = "uid://cuefcb0neh4ua"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r4gi"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mrxx"]
+radius = 32.0
+
+[node name="Object2" type="StaticBody2D" node_paths=PackedStringArray("player", "up_ladder")]
+script = ExtResource("1_gfd0b")
+object_stats = SubResource("Resource_i7141")
+player = NodePath("")
+up_ladder = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7r4gi")
+
+[node name="interactable" parent="." instance=ExtResource("3_e43ws")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+shape = SubResource("CircleShape2D_4mrxx")

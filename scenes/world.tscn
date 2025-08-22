@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://ctpjoaws40sin"]
+[gd_scene load_steps=9 format=4 uid="uid://ctpjoaws40sin"]
 
 [ext_resource type="TileSet" uid="uid://lgikbmvv2yjp" path="res://tilesets/test_tile_set.tres" id="1_i7141"]
 [ext_resource type="PackedScene" uid="uid://dvvg50n3gx6qi" path="res://scenes/player.tscn" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://dd57xou3vgb58" path="res://scenes/test_object.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://c3iume7ejc5jr" path="res://scenes/black_frame.tscn" id="5_71j4m"]
-[ext_resource type="Script" uid="uid://ch2ocncu81h1b" path="res://scripts/object_2.gd" id="6_i7141"]
+[ext_resource type="PackedScene" uid="uid://dv74ebg1tnq1e" path="res://scenes/escape_menu.tscn" id="6_i7141"]
 [ext_resource type="Script" uid="uid://cuefcb0neh4ua" path="res://resources/blank_object.gd" id="6_q5onr"]
-[ext_resource type="PackedScene" uid="uid://bgklx3xoev5e5" path="res://scenes/interactable.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://t5r0yhq6eojp" path="res://scenes/testObject2.tscn" id="6_qfnet"]
 
 [sub_resource type="Resource" id="Resource_71j4m"]
 script = ExtResource("6_q5onr")
@@ -14,19 +14,6 @@ interaction_name = "E - войти в подземелье, F - исследов
 name = "Лестница вниз"
 description = "Лестница, которая тянется далеко вглубь земли"
 metadata/_custom_type_script = "uid://cuefcb0neh4ua"
-
-[sub_resource type="Resource" id="Resource_i7141"]
-script = ExtResource("6_q5onr")
-interaction_name = "E - войти в подземелье, F - исследовать"
-name = "Лестница наверх"
-description = "Врот"
-metadata/_custom_type_script = "uid://cuefcb0neh4ua"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r4gi"]
-size = Vector2(32, 32)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4mrxx"]
-radius = 32.0
 
 [node name="World" type="Node2D"]
 
@@ -55,20 +42,12 @@ down_ladder = NodePath("../Object2")
 [node name="BlackFrame" parent="CanvasLayer" instance=ExtResource("5_71j4m")]
 visible = false
 
-[node name="Object2" type="StaticBody2D" parent="." node_paths=PackedStringArray("player", "up_ladder")]
+[node name="EscapeMenu" parent="CanvasLayer" instance=ExtResource("6_i7141")]
+visible = false
+
+[node name="Object2" parent="." node_paths=PackedStringArray("player", "up_ladder") instance=ExtResource("6_qfnet")]
 position = Vector2(-368, 976)
-script = ExtResource("6_i7141")
-object_stats = SubResource("Resource_i7141")
 player = NodePath("../Player")
 up_ladder = NodePath("../Object")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object2"]
-shape = SubResource("RectangleShape2D_7r4gi")
-
-[node name="interactable" parent="Object2" instance=ExtResource("7_i7141")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object2/interactable"]
-shape = SubResource("CircleShape2D_4mrxx")
-
 [connection signal="showBlackFrame" from="Object" to="CanvasLayer/BlackFrame" method="_on_object_show_black_frame"]
-[connection signal="showBlackFrame" from="Object2" to="CanvasLayer/BlackFrame" method="_on_object_show_black_frame"]

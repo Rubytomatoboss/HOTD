@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv74ebg1tnq1e"]
+
+[ext_resource type="Script" uid="uid://mrc0rhgwfdtm" path="res://scripts/escape_menu.gd" id="1_rqb4o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsd2a"]
+font_size = 66
+
+[node name="EscapeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqb4o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45098)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_top = 108.0
+offset_right = 91.5
+offset_bottom = 199.0
+grow_horizontal = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_qsd2a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -93.0
+offset_right = 56.5
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Back to game"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = 31.0
+offset_right = 18.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Exit"
+
+[connection signal="pressed" from="BackToGameButton" to="." method="_on_back_to_game_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
